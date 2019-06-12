@@ -2,7 +2,7 @@
   "name": "job-seek",
   "version": "0.1.0",
   "description": "잡식성 채용공고 크롤러",
-  "main": "src/server/index.js",
+  "main": "src/batchServer/index.js",
   "scripts": {
     "test": "jest"
   },
