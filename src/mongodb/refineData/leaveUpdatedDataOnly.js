@@ -13,7 +13,7 @@ export default (newData, existingData) => newData.reduce(
       (updatedData, existingOne) => {
         const isUpdated = (existingOne.companyName === newOne.companyName && existingOne.title === newOne.title)
           && !_.isEqualWith(existingOne, newOne, customizer);
-        if (isUpdated) updatedData = { id: existingOne.id, ...newOne };
+        if (isUpdated) updatedData = { _id: existingOne._id, ...newOne };
         return updatedData;
       }, {},
     );

@@ -28,22 +28,22 @@ describe('refineData', () => {
   describe('leaveRemovedDataOnly', () => {
     it('should leave data belong to existingData but not belong to newData', () => {
       const existingData = [
-        { id: 1, ...soldierHiringNotice },
-        { id: 2, ...rapperHiringNotice },
-        { id: 3, ...producerHiringNotice },
+        { _id: 1, ...soldierHiringNotice },
+        { _id: 2, ...rapperHiringNotice },
+        { _id: 3, ...producerHiringNotice },
       ];
       const newData = [soldierHiringNotice];
 
       const result = leaveRemovedDataOnly(newData, existingData);
       expect(result).toEqual([
-        { id: 2, ...rapperHiringNotice },
-        { id: 3, ...producerHiringNotice },
+        { _id: 2, ...rapperHiringNotice },
+        { _id: 3, ...producerHiringNotice },
       ]);
     });
   });
   describe('leaveNewDataOnly', () => {
     it('should leave data belong to newData but not belong to existingData', () => {
-      const existingData = [{ id: 1, ...soldierHiringNotice }];
+      const existingData = [{ _id: 1, ...soldierHiringNotice }];
       const newData = [soldierHiringNotice, rapperHiringNotice, producerHiringNotice];
 
       const result = leaveNewDataOnly(newData, existingData);
@@ -53,9 +53,9 @@ describe('refineData', () => {
   describe('leaveUpdateDataOnly', () => {
     it('should leave data both belong to existingData and newData but have different values', () => {
       const existingData = [
-        { id: 1, ...soldierHiringNotice },
-        { id: 2, ...rapperHiringNotice },
-        { id: 3, ...producerHiringNotice },
+        { _id: 1, ...soldierHiringNotice },
+        { _id: 2, ...rapperHiringNotice },
+        { _id: 3, ...producerHiringNotice },
       ];
       const modifiedRapperHiringNotice = Object.assign({}, rapperHiringNotice);
       modifiedRapperHiringNotice.content = '라임과 플로우에 대한 이해가 있으신 분';
@@ -69,8 +69,8 @@ describe('refineData', () => {
 
       const result = leaveUpdatedDataOnly(newData, existingData);
       expect(result).toEqual([
-        { id: 2, ...modifiedRapperHiringNotice },
-        { id: 3, ...modifiedProducerHiringNotice },
+        { _id: 2, ...modifiedRapperHiringNotice },
+        { _id: 3, ...modifiedProducerHiringNotice },
       ]);
     });
   });

@@ -1,7 +1,4 @@
 import mongoose from 'mongoose';
-import MongooseSequence from 'mongoose-sequence';
-
-const AutoIncrement = MongooseSequence(mongoose);
 
 const hiringNoticeSchema = new mongoose.Schema({
   title: { type: String, required: true },
@@ -13,7 +10,5 @@ const hiringNoticeSchema = new mongoose.Schema({
   uploadDateFrom: { type: Date, required: false },
   uploadDateUntil: { type: Date, required: false },
 });
-
-hiringNoticeSchema.plugin(AutoIncrement, { inc_field: 'id' });
 
 export default mongoose.model('HiringNotice', hiringNoticeSchema, 'hiringNotices');
