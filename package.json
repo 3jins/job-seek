@@ -4,7 +4,9 @@
   "description": "잡식성 채용공고 크롤러",
   "main": "src/batchServer/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "babel src/batchServer -d build/server && babel src/util -d build/util && babel src/mongodb -d build/mongodb",
+    "server": "node build/server/index.js"
   },
   "repository": {
     "type": "git",
