@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import puppeteer from 'puppeteer';
-import config from './config';
+import config from '../config';
 import * as map from './map';
 import crawlFrom from './crawlFrom';
 

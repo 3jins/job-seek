@@ -1,7 +1,7 @@
 import _ from 'lodash';
-import * as map from '../../../src/server/crawl/map';
-import crawl from '../../../src/server/crawl';
-import config from '../../../src/server/crawl/config';
+import * as map from '../../../src/batchServer/crawl/map';
+import crawl from '../../../src/batchServer/crawl';
+import config from '../../../src/batchServer/config';
 
 describe('crawl', () => {
   it('should return a result in a right form', async () => {
