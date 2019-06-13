@@ -20,6 +20,8 @@
     "@babel/runtime": "^7.4.5",
     "cheerio": "^1.0.0-rc.3",
     "lodash": "^4.17.11",
+    "mongoose": "^5.5.14",
+    "mongoose-sequence": "^5.0.1",
     "puppeteer": "^1.17.0"
   },
   "devDependencies": {
