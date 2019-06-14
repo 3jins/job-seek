@@ -1,5 +1,6 @@
 import React from 'react';
 import './TopBar.scss';
+import menuImage from '../../../../images/menu.png';
 
 export default () => {
   return (
@@ -9,7 +10,7 @@ export default () => {
       </div>
       <div className="menu-button-div">
         <button>
-          버튼이미지
+          <img src={menuImage} />
         </button>
       </div>
     </div>

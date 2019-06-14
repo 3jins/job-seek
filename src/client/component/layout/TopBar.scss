@@ -1,3 +1,27 @@
+$menu-button-width: 1.5rem;
+$menu-button-padding: .5rem;
 .top-bar {
-  background-color: $bg-color-2
+  background-color: $bg-color-2;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  box-shadow: 0 2px 4px 3px grey;
+  .title-div {
+    margin-left: #{$menu-button-width + $menu-button-padding};
+    width: 100%;
+  }
+  .menu-button-div {
+    float: right;
+    button {
+      background: transparent;
+      border: transparent;
+      padding: 0 $menu-button-padding;
+
+      img {
+        width: $menu-button-width;
+        height: 1.5rem;
+      }
+    }
+  }
 }
