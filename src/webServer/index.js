@@ -5,6 +5,7 @@ import express from 'express';
 import logger from 'morgan';
 import mongoConfig from '../mongodb/config';
 import webConfig from './config';
+import hiringNotice from './api/hiringNotice';
 
 const app = express();
 const port = process.env.NODE_ENV === 'dev' ? 3000 : 80;
@@ -21,6 +22,7 @@ if (process.env.NODE_ENV === 'dev') {
 
 app.use(express.static(pathInfo.public));
 
+app.use('/hiring-notice', hiringNotice);
 app.get('/*', (req, res) => {
   res.sendFile(path.resolve(pathInfo.public, 'index.html'));
 });
