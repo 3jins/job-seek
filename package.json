@@ -5,8 +5,9 @@
   "main": "src/batchServer/index.js",
   "scripts": {
     "test": "jest",
-    "build": "babel src/batchServer -d build/server && babel src/util -d build/util && babel src/mongodb -d build/mongodb",
-    "server": "node build/server/index.js"
+    "build": "babel src -d build && cp -r public build/public",
+    "batch": "node build/batchServer/index.js",
+    "web": "node build/webServer/index.js"
   },
   "repository": {
     "type": "git",
@@ -21,8 +22,10 @@
   "dependencies": {
     "@babel/runtime": "^7.4.5",
     "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
     "lodash": "^4.17.11",
     "mongoose": "^5.5.14",
+    "morgan": "^1.9.1",
     "puppeteer": "^1.17.0"
   },
   "devDependencies": {
