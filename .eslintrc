@@ -6,7 +6,8 @@
     "no-param-reassign": 0,
     "react/jsx-filename-extension": 0,
     "no-shadow": [1, { "allow": ["err"] }],
-    "no-plusplus": [1, { "allowForLoopAfterthoughts": true }]
+    "no-plusplus": [1, { "allowForLoopAfterthoughts": true }],
+    "react/prop-types": 0
   },
   "env": {
     "node": true,

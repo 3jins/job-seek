@@ -5,9 +5,11 @@
   "main": "src/batchServer/index.js",
   "scripts": {
     "test": "jest",
-    "build": "babel src -d build && cp -r public build/public",
+    "build": "babel src -d build",
     "batch": "node build/batchServer/index.js",
-    "web": "node build/webServer/index.js"
+    "web": "node build/webServer/index.js",
+    "client": "webpack-dev-server",
+    "make-bundle": "webpack"
   },
   "repository": {
     "type": "git",
@@ -26,7 +28,10 @@
     "lodash": "^4.17.11",
     "mongoose": "^5.5.14",
     "morgan": "^1.9.1",
-    "puppeteer": "^1.17.0"
+    "puppeteer": "^1.17.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -35,6 +40,8 @@
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.4.4",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.0.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-react-app": "^4.0.1",
@@ -42,6 +49,13 @@
     "eslint-plugin-import": "^2.17.3",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.13.0",
-    "jest": "^24.8.0"
+    "jest": "^24.8.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "url-loader": "^2.0.0",
+    "webpack": "^4.34.0",
+    "webpack-cli": "^3.3.4",
+    "webpack-dev-server": "^3.7.1"
   }
 }

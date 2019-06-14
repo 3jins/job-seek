@@ -5,6 +5,6 @@ const rootPath = path.resolve(__dirname, '..');
 export default ({
   pathInfo: {
     root: rootPath,
-    public: path.resolve(rootPath, 'public'),
+    public: path.resolve(rootPath, '..', 'dist'),
   },
 });
