@@ -32,7 +32,8 @@
     "puppeteer": "^1.17.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.1"
+    "react-router-dom": "^5.0.1",
+    "react-spinners": "^0.5.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",

@@ -1,0 +1,12 @@
+.loading {
+  height: 80vh;
+  line-height: 80vh;
+  text-align: center;
+
+  p {
+    position: absolute;
+    top: #{3rem + 1.5rem};
+    width: 100%;
+    text-align: center;
+  }
+}
