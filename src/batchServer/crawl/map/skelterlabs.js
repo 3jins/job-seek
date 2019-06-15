@@ -19,8 +19,8 @@ export default ({
       },
     },
     detail: {
-      title: '.above-footer .page-container h1:nth-child(2)',
-      content: '.above-footer .page-container div:nth-child(2)',
+      title: '.above-footer .page-container h1:nth-of-type(2)',
+      content: '.above-footer .page-container div:nth-of-type(2)',
     },
   },
 });

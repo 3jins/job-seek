@@ -12,7 +12,7 @@ export default ({
   },
   selector: {
     list: {
-      title: 'ul.positions li.position>h2',
+      title: 'ul.positions li.position h2',
       detailLink: {
         type: 'anotherPage',
         selector: 'ul.positions li.position>a',
