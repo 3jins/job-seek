@@ -1,20 +1,17 @@
 export default ({
   naver: {
-    all: [''],
     frontend: ['프론트엔드', 'FE'],
     backend: ['백엔드'],
     android: ['Android'],
     ios: ['iOS'],
   },
   lineplus: {
-    all: [''],
     frontend: ['Front-end'],
     backend: ['Server-dev'],
     android: ['Android'],
     ios: ['iOS'],
   },
   kakao: {
-    all: [''],
     frontend: ['Web front'],
     backend: ['Server'],
     android: ['Android'],
