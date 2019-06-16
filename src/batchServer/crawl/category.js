@@ -1,32 +1,39 @@
 export default ({
-  frontend: {
-    naver: ['프론트엔드', 'FE'],
-    lineplus: ['Front-end'],
-    kakao: ['Web front'],
-    zeplSeoul: ['Frontend'],
-    rainist: ['Front-end'],
-    skelterlabs: ['UX Engineer', 'Product Engineer'],
+  naver: {
+    all: [''],
+    frontend: ['프론트엔드', 'FE'],
+    backend: ['백엔드'],
+    android: ['Android'],
+    ios: ['iOS'],
   },
-  backend: {
-    naver: ['백엔드'],
-    lineplus: ['Server-dev'],
-    kakao: ['Server'],
-    zeplSeoul: ['Backend'],
-    rainist: ['Server'],
-    skelterlabs: ['Software Engineer', 'Product Engineer', 'Site Reliability Engineer'],
+  lineplus: {
+    all: [''],
+    frontend: ['Front-end'],
+    backend: ['Server-dev'],
+    android: ['Android'],
+    ios: ['iOS'],
   },
-  android: {
-    naver: ['Android', '안드로이드'],
-    lineplus: ['Android'],
-    kakao: ['Android'],
-    rainist: ['Android'],
-    skelterlabs: ['Product Engineer'],
+  kakao: {
+    all: [''],
+    frontend: ['Web front'],
+    backend: ['Server'],
+    android: ['Android'],
+    ios: ['iOS'],
   },
-  ios: {
-    naver: ['iOS'],
-    lineplus: ['iOS'],
-    kakao: ['iOS'],
-    rainist: ['iOS'],
-    skelterlabs: ['Product Engineer'],
+  zeplSeoul: {
+    frontend: ['Frontend'],
+    backend: ['Backend'],
+  },
+  rainst: {
+    frontend: ['Front-end'],
+    backend: ['Server'],
+    android: ['Android'],
+    ios: ['iOS'],
+  },
+  skelterlabs: {
+    frontend: ['UX Engineer', 'Product Engineer'],
+    backend: ['Software Engineer', 'Product Engineer', 'Site Reliability Engineer'],
+    android: ['Product Engineer'],
+    ios: ['Product Engineer'],
   },
 });

@@ -3,6 +3,7 @@ import puppeteer from 'puppeteer';
 import config from '../config';
 import * as map from './map';
 import crawlFrom from './crawlFrom';
+import category from './category';
 
 export default () => {
   const jobData = {};
@@ -26,7 +27,7 @@ export default () => {
         const jobGroups = Object.keys(uris);
         for (const jobGroup of jobGroups) {
           const uri = uris[jobGroup];
-          jobData[companyName][jobGroup] = await crawlFrom(uri, companyCrawlingMap, page);
+          jobData[companyName][jobGroup] = await crawlFrom(uri, companyCrawlingMap, category[companyName], page);
         }
       }
       browserController.browser.close();

@@ -4,7 +4,7 @@ export default ({
   },
   category: {
     type: 'in-title',
-    delimeter: ' (',
+    delimeter: '\n',
     location: 0, // From 0th index of the string
   },
   pagination: {
