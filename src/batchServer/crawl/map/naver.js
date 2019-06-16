@@ -5,7 +5,7 @@ export default ({
     contents: 'https://recruit.navercorp.com/naver/job/list/contents',
     management: 'https://recruit.navercorp.com/naver/job/list/management',
   },
-  categoryUrl: {
+  category: {
     type: 'query',
     variableName: 'searchTxt',
   },

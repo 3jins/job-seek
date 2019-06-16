@@ -2,7 +2,7 @@ export default ({
   uris: {
     all: 'https://recruit.linepluscorp.com/lineplus/career/',
   },
-  categoryUrl: {
+  category: {
     type: 'query',
     variableName: 'tag',
   },

@@ -5,7 +5,7 @@ export default ({
     marketer: 'https://rainist.com/recruit/marketer',
     manager: 'https://rainist.com/recruit/business',
   },
-  categoryUrl: {
+  category: {
     type: 'in-title',
     delimeter: ' ',
     location: 0, // From 0th index of the string

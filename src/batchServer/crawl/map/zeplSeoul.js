@@ -2,7 +2,7 @@ export default ({
   uris: {
     all: 'https://zepl.breezy.hr/?&location=Seoul,%20KR#positions',
   },
-  categoryUrl: {
+  category: {
     type: 'in-title',
     delimeter: ' ',
     location: 0, // From 0th index of the string

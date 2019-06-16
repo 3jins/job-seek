@@ -2,7 +2,7 @@ export default ({
   uris: {
     all: 'https://skelterlabs.com/careers/',
   },
-  categoryUrl: {
+  category: {
     type: 'in-title',
     delimeter: ' (',
     location: 0, // From 0th index of the string

@@ -6,7 +6,7 @@ export default ({
     service: 'https://careers.kakao.com/jobs?part=BUSINESS_SERVICES',
     staff: 'https://careers.kakao.com/jobs?part=STAFF',
   },
-  categoryUrl: {
+  category: {
     type: 'query',
     variableName: 'skilset',
   },
