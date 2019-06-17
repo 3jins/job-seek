@@ -1,6 +1,6 @@
 export default ({
   uris: {
-    all: 'https://zepl.breezy.hr/?&location=Seoul,%20KR#positions',
+    unclassified: 'https://zepl.breezy.hr/?&location=Seoul,%20KR#positions',
   },
   category: {
     type: 'in-title',

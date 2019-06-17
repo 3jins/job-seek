@@ -1,6 +1,6 @@
 export default ({
   uris: {
-    all: 'https://skelterlabs.com/careers/',
+    unclassified: 'https://skelterlabs.com/careers/',
   },
   category: {
     type: 'in-title',

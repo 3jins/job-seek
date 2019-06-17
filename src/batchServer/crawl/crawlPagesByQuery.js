@@ -1,5 +1,4 @@
 import getTitles from './getTitles';
-import getContents from './getContents';
 
 export default async (categoryKey, titleSelector, page) => {
   await page.waitForSelector(titleSelector, { timeout: 5000 });

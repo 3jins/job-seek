@@ -1,6 +1,6 @@
 export default ({
   uris: {
-    all: 'https://recruit.linepluscorp.com/lineplus/career/',
+    unclassified: 'https://recruit.linepluscorp.com/lineplus/career/',
   },
   category: {
     type: 'query',
