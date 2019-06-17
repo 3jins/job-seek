@@ -4,10 +4,8 @@ import batchConfig from './config';
 import mongoConfig from '../mongodb/config';
 import HiringNotice from '../mongodb/model/HiringNotice';
 import refineJobData from '../mongodb/refineData/refineJobData';
-import leaveRemovedDataOnly from '../mongodb/refineData/leaveRemovedDataOnly';
-import leaveUpdatedDataOnly from '../mongodb/refineData/leaveUpdatedDataOnly';
-import leaveNewDataOnly from '../mongodb/refineData/leaveNewDataOnly';
 import setIntervalImmediate from '../util/setIntervalImmediate';
+import mergeNewDataWithOldData from './mergeNewDataWithOldData';
 
 const crawlAndSave = () => {
   console.log('Start crawling...');
@@ -15,23 +13,7 @@ const crawlAndSave = () => {
     .then(async (jobData) => {
       const dataForMongodb = refineJobData(jobData);
       const existingData = (await HiringNotice.find()).map(data => data._doc);
-      const idToRemove = leaveRemovedDataOnly(dataForMongodb, existingData)
-        .map(dataToRemove => dataToRemove._id);
-      const dataToUpdate = leaveUpdatedDataOnly(dataForMongodb, existingData);
-      const dataToInsert = leaveNewDataOnly(dataForMongodb, existingData);
-      HiringNotice.deleteMany({ _id: { $in: idToRemove } }, (err) => {
-        if (err) console.error(err);
-      });
-      HiringNotice.insertMany(dataToInsert, (err) => {
-        if (err) console.error(err);
-      });
-      dataToUpdate.forEach(updatedOne => HiringNotice.updateOne(
-        { _id: updatedOne._id },
-        updatedOne,
-        (err) => {
-          if (err) console.error(err);
-        },
-      ));
+      mergeNewDataWithOldData(dataForMongodb, existingData);
       console.log('Done!');
     })
     .catch(err => console.error(err));
