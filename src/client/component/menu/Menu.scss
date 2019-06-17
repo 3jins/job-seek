@@ -1,0 +1,26 @@
+$menu-width: 220px;
+$shadow-length: 3px;
+$menu-padding: 1rem;
+
+.menu {
+  position: fixed;
+  background-color: $bg-color-4;
+  top: $top-bar-height;
+  height: calc(100% - #{$top-bar-height});
+  width: $menu-width;
+  padding: 1rem;
+  box-shadow: 0 3px $shadow-length $shadow-length grey;
+  transition: .2s;
+
+  &.opened {
+    left: calc(100% - #{$menu-width} - 2 * #{$menu-padding});
+  }
+  &.closed {
+    left: calc(100% + 2 * #{$shadow-length});
+  }
+
+  .title-section {
+    text-align: center;
+    margin: .5rem 0;
+  }
+}

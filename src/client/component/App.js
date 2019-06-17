@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import TopBar from './layout/TopBar';
-import Menu from './Menu';
+import Menu from './menu/Menu';
 import Footer from './layout/Footer';
 import BoardList from './BoardList';
 import Post from './Post';
+import './App.scss';
 
 export default () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,12 +13,14 @@ export default () => {
     <div className="app">
       <TopBar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       <Menu isMenuOpen={isMenuOpen} />
-      <Router>
-        <Switch>
-          <Route exact path="/" component={BoardList} />
-          <Route path="/post" component={Post} />
-        </Switch>
-      </Router>
+      <div id="content">
+        <Router>
+          <Switch>
+            <Route exact path="/" component={BoardList} />
+            <Route path="/post" component={Post} />
+          </Switch>
+        </Router>
+      </div>
       <Footer />
     </div>
   );

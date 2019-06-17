@@ -1,13 +1,21 @@
-$menu-button-width: 1.5rem;
-$menu-button-padding: .5rem;
 .top-bar {
+  $title-size: 1rem;
+  $menu-button-width: 1.5rem;
+  $menu-button-padding: 1rem;
+
+  position: fixed;
+  width: 100%;
   background-color: $bg-color-2;
+  color: $font-color-2;
   text-align: center;
   display: flex;
   align-items: center;
-  height: 3rem;
+  height: $top-bar-height;
   box-shadow: 0 2px 4px 3px grey;
   .title-div {
+    h1 {
+      font-size: $title-size;
+    }
     margin-left: #{$menu-button-width + $menu-button-padding};
     width: 100%;
   }
@@ -20,7 +28,7 @@ $menu-button-padding: .5rem;
 
       img {
         width: $menu-button-width;
-        height: 1.5rem;
+        height: $title-size;
       }
     }
   }

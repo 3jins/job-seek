@@ -1,0 +1,18 @@
+.search-section {
+  $menu-width: 30%;
+  $shadow-length: 3px;
+  $menu-padding: 1rem;
+  $border-radius-size: 1rem;
+
+  margin: .5rem 0;
+  h4 {
+    margin-left: #{$border-radius-size / 2}
+  }
+  input {
+    border-radius: $border-radius-size;
+    border: .5px solid grey;
+    line-height: 1.5rem;
+    padding: 0 #{$border-radius-size / 2};
+    width: calc(100% - #{$border-radius-size});
+  }
+}
