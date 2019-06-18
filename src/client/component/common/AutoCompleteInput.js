@@ -1,22 +1,34 @@
 import _ from 'lodash';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import SearchContext from '../../SearchContext';
 import './AutoCompleteInput.scss';
 
 export default (props) => {
-  const { searchAPI } = props;
+  const { searchAPI, contextVarName } = props;
   const [typedText, setTypedText] = useState('');
   const [autoCompletionList, setAutoCompletionList] = useState([]);
   const [isSelected, setIsSelected] = useState(false);
+  const [searchTargetList, setSearchTargetList] = useState([]);
+
+  const { searchContext, setSearchContext } = useContext(SearchContext);
 
   useEffect(() => {
     if (!isSelected) {
       searchAPI(typedText)
         .then(valueList => setAutoCompletionList(
-          valueList.map(value => ({ value, focus: false })),
+          valueList
+            .filter(value => !searchTargetList.includes(value))
+            .map(value => ({ value, focus: false })),
         ));
     }
     return () => setIsSelected(false);
   }, [typedText]);
+
+  useEffect(() => {
+    const searchContextCopied = Object.assign({}, searchContext);
+    searchContextCopied[contextVarName] = searchTargetList;
+    setSearchContext(searchContextCopied);
+  }, [searchTargetList]);
 
   const focusOn = targetIdx => setAutoCompletionList(autoCompletionList
     .map((autoCompletion, idx) => {
@@ -32,9 +44,13 @@ export default (props) => {
 
   const select = (targetIdx) => {
     setIsSelected(true);
-    setTypedText(autoCompletionList[targetIdx].value);
+    setSearchTargetList(searchTargetList.concat([autoCompletionList[targetIdx].value]));
+    setTypedText('');
     setAutoCompletionList([]);
   };
+
+  const deselect = text => setSearchTargetList(searchTargetList
+    .filter(searchTarget => searchTarget !== text));
 
   const handleTextInputKeyPress = (event) => {
     const { keyCode } = event;
@@ -53,10 +69,7 @@ export default (props) => {
       select(curFocusedIdx);
     }
   };
-  const handleTextInputChange = (event) => {
-    setTypedText(event.target.value);
-    console.log(typedText);
-  };
+  const handleTextInputChange = event => setTypedText(event.target.value);
 
   const renderAutoCompleteListDiv = (autoCompletionList) => {
     if (autoCompletionList.length === 0) return null;
@@ -82,10 +95,23 @@ export default (props) => {
     );
   };
 
+  const renderSearchTargets = (searchTargetList) => {
+    if (searchTargetList.length === 0) return null;
+    return searchTargetList.map(searchTarget => (
+      <div key={`search-target-${searchTarget}`} className="search-target">
+        {searchTarget}
+        <button className="close-x" onClick={() => deselect(searchTarget)} />
+      </div>
+    ));
+  };
+
   return (
     <div className="auto-complete-input">
       <input type="text" onKeyUp={handleTextInputKeyPress} onChange={handleTextInputChange} value={typedText} />
       {renderAutoCompleteListDiv(autoCompletionList)}
+      <div className="search-target-list">
+        {renderSearchTargets(searchTargetList)}
+      </div>
     </div>
   );
 };

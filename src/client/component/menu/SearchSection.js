@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import axios from 'axios';
 import AutoCompleteInput from '../common/AutoCompleteInput';
 import mergeQueryToUri from '../../../util/mergeQueryToUri';
@@ -6,7 +6,8 @@ import './SearchSection.scss';
 
 export default (props) => {
   const { searchTarget } = props;
-  const { textForView, api: { method, path, query } } = searchTarget;
+  const { textForView, api: { method, path, query }, contextVarName } = searchTarget;
+
   const searchAPI = (text) => {
     const queries = {};
     queries[query] = text;
@@ -20,7 +21,7 @@ export default (props) => {
   return (
     <section className="search-section">
       <h4>{textForView}</h4>
-      <AutoCompleteInput searchAPI={searchAPI} />
+      <AutoCompleteInput searchAPI={searchAPI} contextVarName={contextVarName} />
     </section>
   );
 };

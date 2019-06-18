@@ -15,6 +15,7 @@ $menu-padding: 1rem;
   &.opened {
     left: calc(100% - #{$menu-width} - 2 * #{$menu-padding});
   }
+
   &.closed {
     left: calc(100% + 2 * #{$shadow-length});
   }
@@ -22,5 +23,10 @@ $menu-padding: 1rem;
   .title-section {
     text-align: center;
     margin: .5rem 0;
+  }
+
+  .button-section {
+    text-align: center;
+    margin: 1.5rem 0;
   }
 }

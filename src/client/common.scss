@@ -22,3 +22,10 @@ h1, h2, h3, h4, h5, h6 {
 p {
   margin: 0;
 }
+
+.close-x {
+  display: inline-block;
+  background:
+    linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 47%,$font-color-2 45%,$font-color-2 55%,rgba(0,0,0,0) 53%,rgba(0,0,0,0) 100%),
+    linear-gradient(135deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 47%,$font-color-2 45%,$font-color-2 55%,rgba(0,0,0,0) 53%,rgba(0,0,0,0) 100%);
+}

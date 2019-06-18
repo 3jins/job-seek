@@ -11,6 +11,7 @@ export default (props) => {
       path: '',
       queries: [],
     },
+    contextVarName: 'companies',
   }, {
     textForView: '직군',
     api: {
@@ -18,6 +19,7 @@ export default (props) => {
       path: '',
       queries: [],
     },
+    contextVarName: 'jobGroups',
   }, {
     textForView: '분류',
     api: {
@@ -25,6 +27,7 @@ export default (props) => {
       path: '',
       queries: [],
     },
+    contextVarName: 'categories',
   }];
   const render = () => searchTargetList.map(searchTarget => (
     <SearchSection key={`search-section-${searchTarget.api.method}`} searchTarget={searchTarget} />

@@ -2,24 +2,54 @@
   $menu-padding: 1rem;
   $border-radius-size: 1rem;
 
+  input {
+    margin: .2rem 0;
+  }
+
   .auto-complete-list-div {
     position: absolute;
     background-color: $bg-color-1;
     width: calc(100% - 2 * #{$menu-padding} - #{$border-radius-size});
-    margin: 0 #{$border-radius-size / 2};
+    margin: 0rem #{$border-radius-size / 2};
     border: .5px grey solid;
     border-top: none;
-  }
-  p {
-    padding: 0 .3rem;
 
-    &.focused {
+    p {
+      padding: 0 .3rem;
+
+      &.focused {
+        background-color: $bg-color-2;
+        color: $font-color-2;
+      }
+
+      &.defocused {
+        background-color: $bg-color-1;
+        color: $font-color-1;
+      }
+    }
+  }
+
+  .search-target-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    .search-target {
       background-color: $bg-color-2;
       color: $font-color-2;
-    }
-    &.defocused {
-      background-color: $bg-color-1;
-      color: $font-color-1;
+      border-radius: .5rem;
+      margin: .1rem;
+      padding: .1rem .3rem;
+      font-size: .9rem;
+      height: 1.2rem;
+      display: flex;
+      align-items: center;
+
+      .close-x {
+        width: .5em;
+        height: .5em;
+        margin-left: .4em;
+        border: none;
+      }
     }
   }
 }
