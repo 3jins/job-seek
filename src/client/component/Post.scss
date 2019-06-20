@@ -1,5 +1,5 @@
 .post {
-  margin: 2rem $side-margin;
+  margin: $top-margin + 1rem $side-margin;
   margin-bottom: $side-margin * 1.5;
 
   h1, h2, h3, h4, h5, h6 {

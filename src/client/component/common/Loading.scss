@@ -5,8 +5,8 @@
 
   p {
     position: absolute;
-    top: #{3rem + 1.5rem};
-    width: 100%;
+    top: #{3rem + 1.5rem + $top-margin};
+    width: calc(100% - #{$side-margin} * 2);
     text-align: center;
   }
 }
