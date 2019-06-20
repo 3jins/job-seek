@@ -1,4 +1,26 @@
 .footer {
-  background-color: $bg-color-3;
-  color: $font-color-2
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+  height: 30rem;
+  background-color: $bg-color-5;
+  color: $font-color-2;
+
+  .footer-wrapper {
+    width: 100%;
+
+    p {
+      margin: 1rem;
+      font-size: 1.1rem;
+
+      a {
+        color: $light-anchor-color;
+
+        &:visited {
+          color: $light-visited-anchor-color;
+        }
+      }
+    }
+  }
 }
