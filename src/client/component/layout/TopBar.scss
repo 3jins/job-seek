@@ -12,15 +12,24 @@
   align-items: center;
   height: $top-bar-height;
   box-shadow: 0 2px 4px 3px grey;
+
   .title-div {
     h1 {
       font-size: $title-size;
+
+      a {
+        color: $font-color-2;
+        text-decoration: none;
+      }
     }
+
     margin-left: #{$menu-button-width + $menu-button-padding};
     width: 100%;
   }
+
   .menu-button-div {
     float: right;
+
     button {
       background: transparent;
       border: transparent;

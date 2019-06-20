@@ -7,7 +7,7 @@ export default (props) => {
   return (
     <div className="top-bar">
       <div className="title-div">
-        <h1>JOB SEEK</h1>
+        <h1><a href="/">JOB SEEK</a></h1>
       </div>
       <div className="menu-button-div">
         <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
