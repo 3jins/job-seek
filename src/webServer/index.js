@@ -27,7 +27,7 @@ if (process.env.NODE_ENV === 'dev') {
 app.use(express.static(pathInfo.public));
 
 app.use('/hiring-notice', hiringNotice);
-app.use('/hiring-notice-detail', hiringNoticeDetail)
+app.use('/hiring-notice-detail', hiringNoticeDetail);
 app.use('/company', company);
 app.use('/job-group', jobGroup);
 app.use('/category', category);

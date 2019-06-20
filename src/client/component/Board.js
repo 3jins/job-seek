@@ -24,7 +24,7 @@ export default (props) => {
                 <td>{idx + 1}</td>
                 <td>{jobGroup}</td>
                 <td>
-                  <a href={`/hiring-notice-detail/${_id}`}>{title}</a>
+                  <a href={`/post/${_id}`}>{title}</a>
                 </td>
               </tr>
             );

@@ -25,7 +25,7 @@ export default () => {
           <Router>
             <Switch>
               <Route exact path="/" component={BoardList} />
-              <Route path="/post" component={Post} />
+              <Route path="/post/:postId" component={Post} />
             </Switch>
           </Router>
         </div>
