@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Board.scss';
 
 export default (props) => {
   const { companyName, notices } = props;
@@ -6,11 +7,11 @@ export default (props) => {
   const [numItemsToShow, setNumItemsToShow] = useState(showingNumberUnit);
 
   return (
-    <div className="company-board">
+    <div className="board">
       <h1>{companyName.toUpperCase()}</h1>
       <table>
         <thead>
-          <tr>
+          <tr className="thead-tr">
             <th>#</th>
             <th>직군</th>
             <th>제목</th>
@@ -20,28 +21,35 @@ export default (props) => {
           {notices.slice(0, numItemsToShow).map((notice, idx) => {
             const { _id, title, jobGroup } = notice;
             return (
-              <tr key={`notice-${_id}`}>
-                <td>{idx + 1}</td>
-                <td>{jobGroup}</td>
-                <td>
-                  <a href={`/post/${_id}`}>{title}</a>
-                </td>
+              <tr
+                key={`notice-${_id}`}
+                className="tbody-tr"
+                onClick={() => {
+                  window.location = `/post/${_id}`;
+                }}
+              >
+                <td className="index-td">{idx + 1}</td>
+                <td className="job-group-td">{jobGroup}</td>
+                <td className="title-td">{title}</td>
               </tr>
             );
           })}
         </tbody>
+        {numItemsToShow < notices.length ? (
+          <tfoot>
+            <tr
+              className="tfoot-tr"
+              onClick={() => setNumItemsToShow(
+                Math.min(notices.length, numItemsToShow + showingNumberUnit),
+              )}
+            >
+              <td colSpan="3">
+                {`more (${numItemsToShow} / ${notices.length})`}
+              </td>
+            </tr>
+          </tfoot>
+        ) : null}
       </table>
-      {numItemsToShow < notices.length ? (
-        <div className="more">
-          <button
-            onClick={() => setNumItemsToShow(
-              Math.min(notices.length, numItemsToShow + showingNumberUnit),
-            )}
-          >
-            {`more (${numItemsToShow} / ${notices.length})`}
-          </button>
-        </div>
-      ) : null}
     </div>
   );
 };

@@ -4,6 +4,7 @@ import axios from 'axios';
 import SearchContext from '../SearchContext';
 import Board from './Board';
 import Loading from './common/Loading';
+import BoardList from './BoardList.scss'
 
 export default () => {
   const { searchContext } = useContext(SearchContext);
@@ -38,7 +39,7 @@ export default () => {
   }, [searchContext]);
 
   return (
-    <div className="board">
+    <div className="board-list">
       {render(hiringNoticeList)}
     </div>
   );
