@@ -1,9 +1,8 @@
 .board {
-  padding: 1rem 0;
-
   h1 {
     margin-bottom: .5rem;
   }
+
   table {
     width: 100%;
     border-top: 1px solid $font-color-3;
@@ -22,9 +21,11 @@
 
   .tbody-tr, .tfoot-tr {
     cursor: pointer;
+
     &:hover {
       background-color: $bg-color-4;
     }
+
     &:active {
       color: red;
     }

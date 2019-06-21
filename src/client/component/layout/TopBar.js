@@ -4,7 +4,7 @@ import './TopBar.scss';
 export default (props) => {
   const { isMenuOpen, setIsMenuOpen } = props;
   const curPath = window.location.href;
-  const needMenu = !['post'].includes(curPath.slice('https://'.length).split('/')[1]);
+  const needMenu = curPath.slice('https://'.length).split('/')[1] === ''; // home only
 
   return (
     <div className="top-bar">

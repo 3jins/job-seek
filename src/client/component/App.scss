@@ -1,5 +1,6 @@
 .app {
   #content {
-    padding-top: $top-bar-height;
+    padding: $top-bar-height + $top-margin $side-margin;
+    padding-bottom: $side-margin * 1.5;
   }
 }
