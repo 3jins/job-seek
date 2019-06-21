@@ -4,12 +4,14 @@ import axios from 'axios';
 import SearchContext from '../SearchContext';
 import Board from './Board';
 import Loading from './common/Loading';
-import BoardList from './BoardList.scss'
+import Empty from './common/Empty';
+import './BoardList.scss';
 
 export default () => {
   const { searchContext } = useContext(SearchContext);
 
-  const render = (hiringNoticeList) => {
+  const render = (hiringNoticeList, isResultEmpty) => {
+    if (isResultEmpty) return <Empty message="보여줄 결과가 없습니다 😢" />;
     if (_.isEmpty(hiringNoticeList)) return <Loading />;
     const hiringNoticeListByCompany = _.groupBy(hiringNoticeList, 'companyName');
     return _.map(hiringNoticeListByCompany, (notices, companyName) => (
@@ -18,6 +20,7 @@ export default () => {
   };
 
   const [hiringNoticeList, setHiringNoticeList] = useState([]);
+  const [isResultEmpty, setIsResultEmpty] = useState(false);
   useEffect(() => {
     axios
       .get('/hiring-notice')
@@ -34,13 +37,18 @@ export default () => {
                 || _.intersection(searchContext.categories, categories).length > 0)
             );
           });
+        if (_.isEmpty(filteredHiringNoticeList)) {
+          setIsResultEmpty(true);
+        } else {
+          setIsResultEmpty(false);
+        }
         setHiringNoticeList(filteredHiringNoticeList);
       });
   }, [searchContext]);
 
   return (
     <div className="board-list">
-      {render(hiringNoticeList)}
+      {render(hiringNoticeList, isResultEmpty)}
     </div>
   );
 };
