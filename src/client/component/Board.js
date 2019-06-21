@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Board.scss';
-import handleClickEvent from "../util/handleClickEvent";
+import handleClickEvent from '../util/handleClickEvent';
 
 export default (props) => {
   const { companyName, notices } = props;
