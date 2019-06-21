@@ -1,6 +1,5 @@
 import React from 'react';
 import './TopBar.scss';
-import menuImage from '../../../../images/menu.png';
 
 export default (props) => {
   const { isMenuOpen, setIsMenuOpen } = props;
@@ -10,9 +9,11 @@ export default (props) => {
         <h1><a href="/">JOB SEEK</a></h1>
       </div>
       <div className="menu-button-div">
-        <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          <img src={menuImage} alt="menu button" />
-        </button>
+        <div className={`menu-button ${isMenuOpen ? 'change' : ''}`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <div className="bar1"></div>
+          <div className="bar2"></div>
+          <div className="bar3"></div>
+        </div>
       </div>
     </div>
   );

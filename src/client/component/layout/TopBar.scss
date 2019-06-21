@@ -1,7 +1,7 @@
 .top-bar {
   $title-size: 1rem;
-  $menu-button-width: 1.5rem;
   $menu-button-padding: 1rem;
+  $menu-button-width: 1.5rem;
 
   position: fixed;
   width: 100%;
@@ -29,16 +29,14 @@
 
   .menu-button-div {
     float: right;
+    padding: 0 $menu-button-padding;
 
-    button {
-      background: transparent;
-      border: transparent;
-      padding: 0 $menu-button-padding;
-      cursor: pointer;
+    .menu-button {
+      width: $menu-button-width;
+      height: $title-size;
 
-      img {
-        width: $menu-button-width;
-        height: $title-size;
+      div {
+        background-color: $font-color-2;
       }
     }
   }
