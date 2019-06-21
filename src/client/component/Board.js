@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Board.scss';
+import handleClickEvent from "../util/handleClickEvent";
 
 export default (props) => {
   const { companyName, notices } = props;
@@ -24,8 +25,8 @@ export default (props) => {
               <tr
                 key={`notice-${_id}`}
                 className="tbody-tr"
-                onClick={() => {
-                  window.location = `/post/${_id}`;
+                onClick={(event) => {
+                  handleClickEvent(event, `/post/${_id}`);
                 }}
               >
                 <td className="index-td">{idx + 1}</td>

@@ -25,10 +25,6 @@ export default (props) => {
   if (isNotFound) {
 
   } else {
-    // return (
-    //   <div className="post" dangerouslySetInnerHTML={{ __html: post }}>
-    //   </div>
-    // );
     return (
       <div className="post">
         {ReactHtmlParser(post)}
