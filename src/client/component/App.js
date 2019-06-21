@@ -6,6 +6,7 @@ import Menu from './menu/Menu';
 import Footer from './layout/Footer';
 import BoardList from './BoardList';
 import Post from './Post';
+import Error from './common/Error';
 import './App.scss';
 
 export default () => {
@@ -26,6 +27,7 @@ export default () => {
             <Switch>
               <Route exact path="/" component={BoardList} />
               <Route path="/post/:postId" component={Post} />
+              <Route path="*" component={Error} />
             </Switch>
           </Router>
         </div>

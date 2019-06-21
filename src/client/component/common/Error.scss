@@ -1,0 +1,11 @@
+.error {
+  margin: $top-margin calc(-50vw + 50% + #{$side-margin});
+
+  img {
+    width: 100%;
+  }
+
+  p {
+    text-align: center;
+  }
+}
