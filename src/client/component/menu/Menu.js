@@ -35,10 +35,12 @@ export default (props) => {
 
   return (
     <div className={`menu ${isMenuOpen ? 'opened' : 'closed'}`}>
-      <section className="title-section">
-        <h2>filters</h2>
-      </section>
-      {render()}
+      <div className="wrapper">
+        <section className="title-section">
+          <h2>filters</h2>
+        </section>
+        {render()}
+      </div>
     </div>
   );
 };

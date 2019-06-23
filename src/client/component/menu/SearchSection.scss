@@ -9,11 +9,12 @@
     margin-left: #{$border-radius-size / 2}
   }
   input {
+    $border-thickness: .5px;
     border-radius: $border-radius-size;
-    border: .5px solid grey;
+    border: $border-thickness solid grey;
     line-height: 1.5rem;
     padding: 0 #{$border-radius-size / 2};
-    width: calc(100% - #{$border-radius-size});
+    width: calc(100% - #{$border-radius-size} - 2 * #{$border-thickness});
     @media (max-width: $tablet-width - 1) {
       line-height: 2rem;
     }
