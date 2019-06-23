@@ -1,8 +1,8 @@
-$menu-width: 220px;
-$shadow-length: 3px;
-$menu-padding: 1rem;
-
 .menu {
+  $menu-width: 220px;
+  $shadow-length: 3px;
+  $menu-padding: 1rem;
+
   z-index: 10;
   position: fixed;
   background-color: $bg-color-4;
@@ -29,5 +29,23 @@ $menu-padding: 1rem;
   .button-section {
     text-align: center;
     margin: 1.5rem 0;
+  }
+
+  @media (max-width: $tablet-width - 1) {
+    $menu-side-padding: 3rem;
+    $menu-height: 16rem;
+    z-index: 9;
+    padding: $menu-padding $menu-side-padding 3 * $menu-padding $menu-side-padding;
+    width: calc(100% - #{$menu-side-padding} * 2);
+    height: $menu-height;
+
+    &.opened {
+      left: 0;
+      top: $top-bar-height;
+    }
+    &.closed {
+      left: 0;
+      top: calc(-#{$top-bar-height} - #{$menu-height} - 2 * #{$shadow-length});
+    }
   }
 }

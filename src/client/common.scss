@@ -3,6 +3,8 @@ $bg-color-2: #006a8f;
 $bg-color-3: #000;
 $bg-color-4: #dae3ea;
 $bg-color-5: #333;
+$bg-color-6: #ccd8ea;
+$bg-color-7: #408888;
 $font-color-1: #000;
 $font-color-2: #fff;
 $font-color-3: #555;
@@ -12,6 +14,11 @@ $light-visited-anchor-color: #a5f;
 $top-bar-height: 3rem;
 $top-margin: 2rem;
 $side-margin: 3rem;
+
+$mobile-width: 576px;
+$tablet-width: 768px;
+$desktop-width: 992px;
+$large-desktop-width: 1200px;
 
 html, body {
   margin: 0;

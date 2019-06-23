@@ -14,5 +14,8 @@
     line-height: 1.5rem;
     padding: 0 #{$border-radius-size / 2};
     width: calc(100% - #{$border-radius-size});
+    @media (max-width: $tablet-width - 1) {
+      line-height: 2rem;
+    }
   }
 }

@@ -24,12 +24,12 @@
       }
     }
 
-    margin-left: #{$menu-button-width + $menu-button-padding};
     width: 100%;
   }
 
   .menu-button-div {
-    float: right;
+    position: absolute;
+    right: 0;
     padding: 0 $menu-button-padding;
 
     .menu-button {

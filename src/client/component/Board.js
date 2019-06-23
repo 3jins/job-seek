@@ -29,9 +29,9 @@ export default (props) => {
                   handleClickEvent(event, `/post/${_id}`);
                 }}
               >
-                <td className="index-td">{idx + 1}</td>
-                <td className="job-group-td">{jobGroup}</td>
-                <td className="title-td">{title}</td>
+                <td thData="#" className="index-td">{idx + 1}</td>
+                <td thData="직군" className="job-group-td">{jobGroup}</td>
+                <td thData="제목" className="title-td">{title}</td>
               </tr>
             );
           })}
