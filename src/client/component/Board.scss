@@ -9,17 +9,22 @@
     width: 100%;
     border-top: 1px solid $font-color-3;
     border-collapse: collapse;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
 
   th, td {
     border-bottom: 1px solid $font-color-3;
-    padding: .2rem $td-side-margin;
+    padding: 0 $td-side-margin;
   }
 
   th {
     text-align: center;
-    background-color: $bg-color-4;
+    background-color: $bg-color-6;
+    line-height: 1.5rem;
+  }
+
+  td {
+    line-height: 2rem;
   }
 
   .tbody-tr td {
@@ -33,7 +38,7 @@
     cursor: pointer;
 
     &:hover {
-      background-color: $bg-color-4;
+      background-color: $bg-color-6;
     }
 
     &:active {
@@ -77,13 +82,17 @@
       tbody {
         td {
           text-align: left !important;
-          width: calc(100% - 2 * #{$td-side-margin}) !important;
+          width: calc(100% - #{$td-side-margin}) !important;
+          padding-left: 0;
 
           &:before {
             content: attr(thData);
             width: 4rem;
+            margin-right: .5rem;
             display: inline-block;
             font-weight: bold;
+            border-right: 1px solid $bg-color-1;
+            text-align: center;
           }
         }
 

@@ -20,12 +20,20 @@ $tablet-width: 768px;
 $desktop-width: 992px;
 $large-desktop-width: 1200px;
 
+@font-face {
+  font-family: 'Handon3gyeopsal300g';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal300g.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html, body {
   margin: 0;
   padding: 0;
   background-color: $bg-color-1;
   color: $font-color-1;
   overflow-x: hidden;
+  font-family: #{Handon3gyeopsal300g};
 }
 
 h1, h2, h3, h4, h5, h6 {
