@@ -12,7 +12,7 @@ export default ({
     ios: ['iOS'],
   },
   kakao: {
-    frontend: ['Web front'],
+    frontend: ['Web_front'],
     backend: ['Server'],
     android: ['Android'],
     ios: ['iOS'],

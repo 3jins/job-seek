@@ -22,8 +22,8 @@ export default ({
       },
     },
     detail: {
-      title: 'p.styles__wrapper___YB1-0 b:nth-child(1)',
-      content: 'p.styles__wrapper___YB1-0',
+      title: '.styles__detailsContainer___OGU3P p.styles__wrapper___YB1-0 b:nth-of-type(1)',
+      content: '.styles__detailsContainer___OGU3P p.styles__wrapper___YB1-0',
     },
   },
 });
