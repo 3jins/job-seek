@@ -9,6 +9,7 @@ describe('refineData', () => {
     title: '신입 병사 채용',
     content: '신체 3급 이상 남성 아무나',
     jobGroup: 'soldier',
+    originUrl: 'https://www.mma.go.kr/board/boardView.do?gesipan_id=69&gsgeul_no=1501112&pageIndex=1&searchCondition=&searchKeyword=&pageUnit=10&mc=usr0000127&jbc_gonggibodo=0',
     dateCreated: new Date().getTime(),
   };
   const rapperHiringNotice = {
@@ -16,6 +17,7 @@ describe('refineData', () => {
     title: '래퍼 채용',
     content: '라임에 대한 이해가 있으신 분',
     jobGroup: 'rapper',
+    originUrl: 'http://wejustmusic.com/bbs/board.php?bo_table=News&wr_id=1',
     dateCreated: new Date().getTime(),
   };
   const producerHiringNotice = {
@@ -23,6 +25,7 @@ describe('refineData', () => {
     title: '프로듀서 채용',
     content: '프알못이에요. 못 쓰겠음 ㅠㅠ',
     jobGroup: 'producer',
+    originUrl: 'http://wejustmusic.com/bbs/board.php?bo_table=News&wr_id=2',
     dateCreated: new Date().getTime(),
   };
   describe('leaveRemovedDataOnly', () => {

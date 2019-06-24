@@ -17,7 +17,12 @@ export default async (categoryKeywords, titleSelector, contentSelector, detailLi
           categoryKeywordList => categoryKeywordList.includes(categoryFromTitle),
         ),
       );
-      return { title, content, categories };
+      return {
+        title,
+        content,
+        categories,
+        originUrl: uri,
+      };
     });
   }
   console.error(`Number of parsed data doesn't match. title: ${titles.length}, content: ${contents.length}`);

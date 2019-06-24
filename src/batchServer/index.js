@@ -13,7 +13,6 @@ import updateCompanyList from './updateCompanyList';
 import updateJobGroupList from './updateJobGroupList';
 import updateCategoryList from './updateCategoryList';
 
-
 const crawlAndSave = () => {
   console.log('Start crawling...');
   return crawl()

@@ -9,7 +9,12 @@ export default async (titleSelector, contentSelector, detailLink, uri, page) => 
   if (titles.length === contents.length) {
     return titles.map((title, idx) => {
       const content = contents[idx];
-      return { title, content, categories: [] };
+      return {
+        title,
+        content,
+        categories: [],
+        originUrl: uri,
+      };
     });
   }
   console.error(`Number of parsed data doesn't match. title: ${titles.length}, content: ${contents.length}`);
