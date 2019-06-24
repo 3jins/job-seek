@@ -14,10 +14,12 @@
   transition: .2s;
 
   &.opened {
+    visibility: visible;
     left: calc(100% - #{$menu-width} - 2 * #{$menu-padding});
   }
 
   &.closed {
+    visibility: hidden;
     left: calc(100% + 2 * #{$shadow-length});
   }
 
