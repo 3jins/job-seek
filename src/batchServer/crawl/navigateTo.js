@@ -28,7 +28,7 @@ export default async (curPageNo, uri, paginationObj, titleSelector, page) => {
         if (err.message !== 'Node is either not visible or not an HTMLElement') console.error(err);
         else break;
       }
-      await page.waitFor(500); // TODO: Find better solution
+      await page.waitFor(5000); // TODO: Find better solution
       prevNumNotices = curNumNotices;
       curNumNotices = await page.$$eval(titleSelector, notices => notices.length);
     } while (prevNumNotices !== curNumNotices);

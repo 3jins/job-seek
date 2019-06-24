@@ -6,10 +6,14 @@ export default async (categoryKeywords, titleSelector, contentSelector, detailLi
   await page.waitForSelector(titleSelector, { timeout: 5000 });
   const rawHtml = await page.content();
   const titles = getTitles(rawHtml, titleSelector);
-  const contents = await getContents(rawHtml, detailLink, contentSelector, uri, page);
+  const {
+    contents,
+    originUrls,
+  } = await getContents(rawHtml, detailLink, contentSelector, uri, page);
   if (titles.length === contents.length) {
     return titles.map((title, idx) => {
       const content = contents[idx];
+      const originUrl = originUrls[idx];
       const categoryFromTitle = title.trim().slice(location).split(delimeter)[0];
       const categories = _.keys(
         _.pickBy(
@@ -21,7 +25,7 @@ export default async (categoryKeywords, titleSelector, contentSelector, detailLi
         title,
         content,
         categories,
-        originUrl: uri,
+        originUrl,
       };
     });
   }
