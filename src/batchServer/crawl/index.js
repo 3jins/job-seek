@@ -22,13 +22,14 @@ export default () => {
         try {
           jobData[companyName] = {};
           const companyCrawlingMap = filtered[companyName];
-          console.log(`Crawling ${companyName}...`);
           if (exclude.includes(companyName)) return;
           const { uris } = companyCrawlingMap;
           const jobGroups = Object.keys(uris);
           for (const jobGroup of jobGroups) {
+            console.log(`Crawling notices for [${jobGroup}] job group in [${companyName}]...`);
             const uri = uris[jobGroup];
-            jobData[companyName][jobGroup] = await crawlFrom(uri, companyCrawlingMap, category[companyName], page);
+            const categoryList = jobGroup in category[companyName] ? category[companyName][jobGroup] : {};
+            jobData[companyName][jobGroup] = await crawlFrom(uri, companyCrawlingMap, categoryList, page);
           }
         } catch (err) {
           console.error(err);

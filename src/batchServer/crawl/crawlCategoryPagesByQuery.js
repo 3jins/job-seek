@@ -8,7 +8,7 @@ export default async (categoryKey, titleSelector, page) => {
     return titles.map(title => ({ title, categories: [categoryKey] }));
   } catch (err) {
     if (err.name === 'TimeoutError') {
-      console.log(`It seems there is no hiring notice for ${categoryKey}.`);
+      console.log(`It seems there is no hiring notice for one of the queries of ${categoryKey}.`);
     } else {
       console.error(err);
     }
