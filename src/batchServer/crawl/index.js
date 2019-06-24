@@ -19,15 +19,19 @@ export default () => {
     .then(async (page) => {
       const companyNames = Object.keys(filtered);
       for (const companyName of companyNames) {
-        jobData[companyName] = {};
-        const companyCrawlingMap = filtered[companyName];
-        console.log(`Crawling ${companyName}...`);
-        if (exclude.includes(companyName)) return;
-        const { uris } = companyCrawlingMap;
-        const jobGroups = Object.keys(uris);
-        for (const jobGroup of jobGroups) {
-          const uri = uris[jobGroup];
-          jobData[companyName][jobGroup] = await crawlFrom(uri, companyCrawlingMap, category[companyName], page);
+        try {
+          jobData[companyName] = {};
+          const companyCrawlingMap = filtered[companyName];
+          console.log(`Crawling ${companyName}...`);
+          if (exclude.includes(companyName)) return;
+          const { uris } = companyCrawlingMap;
+          const jobGroups = Object.keys(uris);
+          for (const jobGroup of jobGroups) {
+            const uri = uris[jobGroup];
+            jobData[companyName][jobGroup] = await crawlFrom(uri, companyCrawlingMap, category[companyName], page);
+          }
+        } catch (err) {
+          console.error(err);
         }
       }
       browserController.browser.close();
