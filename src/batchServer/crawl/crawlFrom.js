@@ -35,7 +35,17 @@ export default async (uri, companyCrawlingMap, categoryKeywords, page) => {
           categoryKey, titleSelector, page,
         )).forEach((newOne) => {
           const { title, categories } = newOne;
-          _.find(crawled, { title }).categories.push(...categories);
+          const existingOne = _.find(crawled, { title });
+          if (_.isEmpty(existingOne)) {
+            console.error([
+              'Result of crawling among the whole categories does not contain one from a specific category. There are 3 possible causes for this error.',
+              ' 1. Exploring pages take too much time. Enlarge the timeout.',
+              ' 2. One of the files in \'batchServer/crawl/map\' is in wrong format.',
+              ' 3. Page that you are trying to crawl is going wrong.',
+            ].join('\n'));
+          } else {
+            existingOne.categories.push(...categories);
+          }
         });
       }
     }

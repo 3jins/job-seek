@@ -1,3 +1,4 @@
+/* eslint-disable no-await-in-loop */
 import mergeQueryToUri from '../../util/mergeQueryToUri';
 import getQueryValueFromUri from '../../util/getQueryValueFromUri';
 
@@ -18,20 +19,38 @@ export default async (curPageNo, uri, paginationObj, titleSelector, page) => {
   } else if (type === 'moreButton') {
     const { selector } = paginationObj;
     await page.goto(uri);
+
     let curNumNotices = await page.$$eval(titleSelector, notices => notices.length);
     let prevNumNotices = curNumNotices;
-
-    do {
-      try {
-        await page.click(selector);
-      } catch (err) {
-        if (err.message !== 'Node is either not visible or not an HTMLElement') console.error(err);
-        else break;
+    let isMoreButtonVisible = false;
+    let moreButton = await page.waitForSelector(selector, {
+      visible: true,
+      hidden: true,
+      timeout: 1000,
+    });
+    if (moreButton !== null) {
+      await moreButton.focus(); // Move viewport to the moreButton
+      isMoreButtonVisible = await moreButton.isIntersectingViewport();
+    }
+    while (isMoreButtonVisible) {
+      await page.click(selector);
+      while (prevNumNotices === curNumNotices) {
+        await page.waitFor(1000);
+        curNumNotices = await page.$$eval(titleSelector, notices => notices.length);
       }
-      await page.waitFor(5000); // TODO: Find better solution
       prevNumNotices = curNumNotices;
       curNumNotices = await page.$$eval(titleSelector, notices => notices.length);
-    } while (prevNumNotices !== curNumNotices);
+
+      moreButton = await page.waitForSelector(selector, {
+        visible: true,
+        hidden: true,
+        timeout: 1000,
+      });
+      if (moreButton !== null) {
+        await moreButton.focus(); // Move viewport to the moreButton
+        isMoreButtonVisible = await moreButton.isIntersectingViewport();
+      }
+    }
     return false;
   } else if (type === 'none') {
     await page.goto(uri);

@@ -9,13 +9,8 @@ export default async (nextUri, pagination, titleSelector, page, callback, ...arg
     doesNextPageExist = await navigateTo(
       curPageNo, nextUri, pagination, titleSelector, page,
     );
-    try {
-      crawled.push(...(await callback(...args)));
-      curPageNo += 1;
-    } catch (err) {
-      console.error(err);
-      doesNextPageExist = false;
-    }
+    crawled.push(...(await callback(...args)));
+    curPageNo += 1;
   }
   return crawled;
 };
