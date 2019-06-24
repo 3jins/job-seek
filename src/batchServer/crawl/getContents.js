@@ -18,6 +18,7 @@ export default async (rawHtml, detailLink, contentSelector, uri, page) => {
     await page.waitForSelector(contentSelector, { timeout: 5000 });
     const detailRawHtml = await page.content();
     $ = cheerio.load(detailRawHtml);
+    $('img').each((i, img) => $(img).attr('src', hrefToFullUri($(img).attr('src'), uri)));
     contents.push($(contentSelector).html());
   }
 
