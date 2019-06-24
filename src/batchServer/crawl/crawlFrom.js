@@ -1,9 +1,9 @@
 /* eslint-disable no-await-in-loop */
 import _ from 'lodash';
 import withEachPage from './withEachPage';
-import crawlPagesWithoutQuery from './crawlPagesWithoutQuery';
-import crawlPagesByQuery from './crawlPagesByQuery';
-import crawlPagesByMoreButton from './crawlPagesByMoreButton';
+import crawlCategoryPagesWithoutQuery from './crawlCategoryPagesWithoutQuery';
+import crawlCategoryPagesByQuery from './crawlCategoryPagesByQuery';
+import crawlCategoryPagesByButton from './crawlCategoryPagesByButton';
 import mergeQueryToUri from '../../util/mergeQueryToUri';
 
 export default async (uri, companyCrawlingMap, categoryKeywords, page) => {
@@ -20,7 +20,7 @@ export default async (uri, companyCrawlingMap, categoryKeywords, page) => {
     const { variableName } = category;
     crawled.push(...(await withEachPage(
       uri, pagination, titleSelector, page,
-      crawlPagesWithoutQuery,
+      crawlCategoryPagesWithoutQuery,
       titleSelector, contentSelector, detailLink, uri, page,
     )));
     for (const categoryKey in categoryKeywords) {
@@ -31,7 +31,7 @@ export default async (uri, companyCrawlingMap, categoryKeywords, page) => {
         const uriWithCategoryQuery = mergeQueryToUri(uri, queries);
         (await withEachPage(
           uriWithCategoryQuery, pagination, titleSelector, page,
-          crawlPagesByQuery,
+          crawlCategoryPagesByQuery,
           categoryKey, titleSelector, page,
         )).forEach((newOne) => {
           const { title, categories } = newOne;
@@ -53,7 +53,7 @@ export default async (uri, companyCrawlingMap, categoryKeywords, page) => {
     const { delimeter, location } = category;
     crawled.push(...(await withEachPage(
       uri, pagination, titleSelector, page,
-      crawlPagesByMoreButton,
+      crawlCategoryPagesByButton,
       categoryKeywords, titleSelector, contentSelector, detailLink, uri, delimeter, location, page,
     )));
   }
