@@ -47,5 +47,10 @@ export default async (uri, companyCrawlingMap, categoryKeywords, page) => {
       categoryKeywords, titleSelector, contentSelector, detailLink, uri, delimeter, location, page,
     )));
   }
+
+  if ('postprocess' in companyCrawlingMap) {
+    const { postprocess } = companyCrawlingMap;
+    return postprocess(crawled);
+  }
   return crawled;
 };

@@ -39,4 +39,6 @@ export default ({
       content: '.content_area',
     },
   },
+  postprocess: crawled => crawled
+    .filter(jobNotice => !jobNotice.title.startsWith('[공지] ')),
 });
