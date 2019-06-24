@@ -1,10 +1,34 @@
 .post {
+  line-height: 1.5;
 
   h1, h2, h3, h4, h5, h6 {
     margin: .5rem 0;
   }
 
+  a {
+    color: $light-anchor-color;
+    &:visited {
+      color: $light-visited-anchor-color;
+    }
+  }
+
   ul {
     margin: 0;
+  }
+
+  .origin-url-section {
+    button {
+      width: 100%;
+      height: 3rem;
+      margin: 1rem 0;
+      color: white;
+      background-color: $bg-color-7;
+      border: none;
+      border-bottom: 3px solid $darker-bg-color-7;
+
+      &:active {
+        border-bottom: none;
+      }
+    }
   }
 }

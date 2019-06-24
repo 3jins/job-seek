@@ -4,6 +4,7 @@ import axios from 'axios';
 import ReactHtmlParser from 'react-html-parser';
 import Error from './common/Error';
 import './Post.scss';
+import handleClickEvent from "../util/handleClickEvent";
 
 export default (props) => {
   const { match: { params: { postId } } } = props;
@@ -15,7 +16,7 @@ export default (props) => {
     axios
       .get(`/${apiMethodBase}/${postId}`)
       .then((response) => {
-        setPost(response.data[0].content);
+        setPost(response.data[0]);
       })
       .catch(() => setIsServerError(true));
   }, []);
@@ -27,9 +28,17 @@ export default (props) => {
       </div>
     );
   }
+
+  const { title, content, originUrl } = post;
   return (
     <div className="post">
-      {ReactHtmlParser(post)}
+      <h1>{title}</h1>
+      {ReactHtmlParser(content)}
+      <section className="origin-url-section">
+        <button onClick={event => handleClickEvent(event, originUrl)}>
+          원글 보러 가기
+        </button>
+      </section>
     </div>
   );
 };
