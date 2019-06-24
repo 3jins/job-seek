@@ -44,7 +44,7 @@ export default async (uri, companyCrawlingMap, categoryKeywords, page) => {
               ' 3. Page that you are trying to crawl is going wrong.',
             ].join('\n'));
           } else {
-            existingOne.categories.push(...categories);
+            existingOne.categories = _.union(existingOne.categories, categories);
           }
         });
       }
