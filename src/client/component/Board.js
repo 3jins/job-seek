@@ -13,14 +13,20 @@ export default (props) => {
       <table>
         <thead>
           <tr className="thead-tr">
-            <th>#</th>
-            <th>직군</th>
-            <th>제목</th>
+            <th className="index-td">#</th>
+            <th className="job-group-td">직군</th>
+            <th className="title-td">제목</th>
+            <th className="category-td">분류</th>
           </tr>
         </thead>
         <tbody>
           {notices.slice(0, numItemsToShow).map((notice, idx) => {
-            const { _id, title, jobGroup } = notice;
+            const {
+              _id,
+              jobGroup,
+              title,
+              categories,
+            } = notice;
             return (
               <tr
                 key={`notice-${_id}`}
@@ -29,9 +35,12 @@ export default (props) => {
                   handleClickEvent(event, `/post/${_id}`);
                 }}
               >
-                <td thData="#" className="index-td">{idx + 1}</td>
-                <td thData="직군" className="job-group-td">{jobGroup}</td>
-                <td thData="제목" className="title-td">{title}</td>
+                <td thdata="#" className="index-td">{idx + 1}</td>
+                <td thdata="직군" className="job-group-td">{jobGroup}</td>
+                <td thdata="제목" className="title-td">{title}</td>
+                <td thdsata="분류" className="category-td">
+                  {categories.length > 0 ? categories.join(', ') : 'none'}
+                </td>
               </tr>
             );
           })}
@@ -44,7 +53,7 @@ export default (props) => {
                 Math.min(notices.length, numItemsToShow + showingNumberUnit),
               )}
             >
-              <td colSpan="3">
+              <td colSpan="4">
                 {`more (${numItemsToShow} / ${notices.length})`}
               </td>
             </tr>

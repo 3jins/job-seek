@@ -1,10 +1,9 @@
-import _ from 'lodash';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ReactHtmlParser from 'react-html-parser';
 import Error from './common/Error';
+import handleClickEvent from '../util/handleClickEvent';
 import './Post.scss';
-import handleClickEvent from "../util/handleClickEvent";
 
 export default (props) => {
   const { match: { params: { postId } } } = props;

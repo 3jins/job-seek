@@ -10,6 +10,7 @@
     border-top: 1px solid $font-color-3;
     border-collapse: collapse;
     margin-bottom: 2rem;
+    table-layout: fixed; // Need for ellipsis (white-space: nowrap)
   }
 
   th, td {
@@ -52,24 +53,37 @@
   }
 
   .index-td {
+    width: 2rem;
+  }
+
+  td.index-td {
     text-align: center;
-    width: 2rem
   }
 
   .job-group-td {
-    text-align: center;
     width: 8rem;
   }
 
-  .title-td {
+  td.job-group-td {
+    text-align: center;
+  }
+
+  td.title-td {
     text-align: left;
-    width: max-content;
+  }
+
+  .category-td {
+    width: 10rem;
+  }
+
+  td.category-td {
+    text-align: left;
   }
 
   @media (max-width: $tablet-width - 1) {
     table {
       border: none;
-      table-layout: fixed; // Need for ellipsis (white-space: nowrap)
+
       td {
         display: block;
         border: 1px solid $bg-color-1;
@@ -86,7 +100,7 @@
           padding-left: 0;
 
           &:before {
-            content: attr(thData);
+            content: attr(thdata);
             width: 4rem;
             margin-right: .5rem;
             display: inline-block;
